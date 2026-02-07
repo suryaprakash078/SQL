@@ -1,0 +1,57 @@
+CREATE TABLE exs4 (
+    item_id        NUMBER(5),
+    item_name      VARCHAR2(30),
+    checkin_date   DATE,
+    item_price     NUMBER(8,3),
+    branch_name    VARCHAR2(20),
+    consumer_name  VARCHAR2(15),
+    place          VARCHAR2(15)
+);
+
+INSERT INTO exs4 VALUES 
+(12101, 'map of the soul', TO_DATE('07/04/2021','DD/MM/YYYY'), 578.90, 'kpop store', 'namjoon', 'seoul');
+
+INSERT INTO exs4 VALUES 
+(12102, '2 cool 4 skool', TO_DATE('19/06/2021','DD/MM/YYYY'), 600.78, 'bighit', 'taehyung', 'paris');
+
+INSERT INTO exs4 VALUES 
+(12103, 'face yourself', TO_DATE('31/08/2021','DD/MM/YYYY'), 453.12, 'pnation', 'kai', NULL);
+
+INSERT INTO exs4 VALUES 
+(12104, 'you never walk alone', TO_DATE('27/10/2021','DD/MM/YYYY'), 399.01, 'jyp', 'jungkook', 'london');
+
+INSERT INTO exs4 VALUES 
+(12105, 'wings', TO_DATE('11/12/2021','DD/MM/YYYY'), 638.34, 'hyin', 'suga', NULL);
+
+SELECT * FROM exs4;
+
+SELECT UPPER(item_name) FROM exs4;
+
+SELECT INITCAP(item_name) FROM exs4;
+
+SELECT TRIM(BOTH 'e' FROM item_name) FROM exs4;
+
+SELECT ADD_MONTHS(TO_DATE('19/01/2021','DD/MM/YYYY'), 3) FROM dual;
+
+SELECT LAST_DAY(TO_DATE('14/03/2021','DD/MM/YYYY')) FROM dual;
+
+SELECT TO_CHAR(checkin_date, 'DAY MONTH YYYY') FROM exs4;
+
+SELECT TO_CHAR(SYSDATE, 'DD') FROM dual;
+
+SELECT 
+    MAX(item_price),
+    MIN(item_price),
+    ROUND(AVG(item_price),1),
+    SUM(item_price)
+FROM exs4;
+
+SELECT MIN(item_name), MAX(item_name) FROM exs4;
+
+SELECT COUNT(place) FROM exs4;
+
+SELECT TO_CHAR(SYSDATE, 'DD') FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'DDTH') FROM dual;
+
+SELECT TO_CHAR(SYSDATE, 'DDSPTH') FROM dual;

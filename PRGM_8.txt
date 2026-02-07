@@ -1,0 +1,17 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+  TYPE arr IS VARRAY(5) OF VARCHAR2(10);
+  TYPE marks_arr IS VARRAY(5) OF NUMBER;
+
+  names arr := arr('Kavita','Pritam','Ayan','Rishav','Aziz');
+  marks marks_arr := marks_arr(98,97,78,87,92);
+
+BEGIN
+  FOR i IN 1 .. names.COUNT LOOP
+    dbms_output.put_line(
+      'Student: ' || names(i) || ' Marks: ' || marks(i)
+    );
+  END LOOP;
+END;
+/

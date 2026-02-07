@@ -1,0 +1,38 @@
+SET SERVEROUTPUT ON;
+
+CREATE TABLE e16 (
+  empno NUMBER(20) PRIMARY KEY,
+  basic NUMBER(20),
+  hra   NUMBER(20),
+  da    NUMBER(20),
+  ded   NUMBER(20),
+  net   NUMBER(20),
+  gross NUMBER(20)
+);
+
+INSERT INTO e16 VALUES (101, 20000, 5000, 3000, 2000, 26000, 28000);
+INSERT INTO e16 VALUES (102, 25000, 6000, 4000, 3000, 32000, 35000);
+
+CREATE TABLE backup1 (
+  empno NUMBER(20),
+  gross NUMBER(20),
+  net   NUMBER(20)
+);
+
+CREATE OR REPLACE TRIGGER sal_change
+AFTER UPDATE ON e16
+FOR EACH ROW
+BEGIN
+  INSERT INTO backup1 (empno, gross, net)
+  VALUES (:OLD.empno, :OLD.gross, :OLD.net);
+END;
+/
+
+UPDATE e16
+SET basic = 30000,
+    gross = 38000,
+    net   = 35000
+WHERE empno = 101;
+
+SELECT * FROM e16;
+SELECT * FROM backup1;

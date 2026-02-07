@@ -1,0 +1,17 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    num1 NUMBER := 10;
+    num2 NUMBER := 20;
+BEGIN
+    IF num1 < num2 THEN
+        DBMS_OUTPUT.PUT_LINE('num1 is smaller than num2');
+    ELSIF num1 = num2 THEN
+        DBMS_OUTPUT.PUT_LINE('num1 and num2 are equal');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('num2 is smaller than num1');
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('after else if ladder');
+END;
+/

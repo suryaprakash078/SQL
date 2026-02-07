@@ -1,0 +1,34 @@
+-- Create customer table
+CREATE TABLE ex2 (
+    customer_id NUMBER(5) PRIMARY KEY,
+    name        VARCHAR2(20) NOT NULL,
+    age         NUMBER(3),
+    location    VARCHAR2(15) NOT NULL
+);
+
+-- Insert values into ex2
+INSERT INTO ex2 VALUES (101, 'namjoon', 20, 'Coimbatore');
+INSERT INTO ex2 VALUES (102, 'suga', 22, 'Chennai');
+INSERT INTO ex2 VALUES (103, 'jhope', 21, 'Madurai');
+INSERT INTO ex2 VALUES (105, 'jungkook', 19, 'Theni');
+
+-- Display customer table
+SELECT * FROM ex2;
+
+-- Create order table
+CREATE TABLE ord (
+    order_id     NUMBER(5) PRIMARY KEY,
+    ordernumber  NUMBER(6) NOT NULL,
+    customer_id  NUMBER(5),
+    CONSTRAINT fk_customer
+    FOREIGN KEY (customer_id) REFERENCES ex2(customer_id)
+);
+
+-- Insert values into ord
+INSERT INTO ord VALUES (121, 10254, 102);
+INSERT INTO ord VALUES (145, 10256, 101);
+INSERT INTO ord VALUES (135, 10285, 103);
+INSERT INTO ord VALUES (114, 11354, 105);
+
+-- Display order table
+SELECT * FROM ord;
