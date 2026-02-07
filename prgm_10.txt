@@ -1,0 +1,15 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    a NUMBER;
+
+    PROCEDURE squareNum(x IN OUT NUMBER) IS
+    BEGIN
+        x := x * x;
+    END;
+BEGIN
+    a := 23;
+    squareNum(a);
+    DBMS_OUTPUT.PUT_LINE('Square of 23 = ' || a);
+END;
+/
